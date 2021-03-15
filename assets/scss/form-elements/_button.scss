@@ -1,0 +1,26 @@
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 36px;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: $btn-pink;
+  width: 100%;
+  max-width: 305px;
+  border-radius: 8px;
+
+  &.dark {
+  }
+
+  &.gray {
+    background-color: $btn-gray;
+    color: $gray-color;
+    letter-spacing: 0.75px;
+    text-transform: capitalize;
+    font-size: 14px;
+    line-height: 16px;
+  }
+}

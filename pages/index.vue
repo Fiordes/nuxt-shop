@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    Hello
+  <div>
+    <Header />
   </div>
 </template>
 
@@ -9,16 +9,12 @@ export default {
   data() {
     return {};
   },
-  components: {},
+  components: {
+    Header: () => import("@/components/Header.vue")
+  },
   methods: {},
   mounted() {},
   computed: {}
 };
 </script>
-<style lang="scss" scoped>
-.container {
-  @include media(wide) {
-    display: none;
-  }
-}
-</style>
+<style lang="scss" scoped></style>
