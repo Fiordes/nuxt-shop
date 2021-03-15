@@ -1,0 +1,10 @@
+@import "./font-face";
+
+// font-family: 'Lato-Thin', sans-serif
+@include font("Lato-Thin", normal, 400, "/fonts/Lato/Lato-Thin.woff2");
+
+// font-family: 'Lato-Regular', sans-serif
+@include font("Lato-Regular", normal, 400, "/fonts/Lato/Lato-Regular.woff2");
+
+// font-family: 'Lato-Bold', sans-serif
+@include font("Lato-Bold", normal, 400, "/fonts/Lato/Lato-Bold.woff2");
