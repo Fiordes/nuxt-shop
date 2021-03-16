@@ -45,8 +45,7 @@ export default {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    "@nuxtjs/eslint-module",
-    "nuxt-gsap-module"
+    "@nuxtjs/eslint-module"
   ],
   /*
    ** Nuxt.js modules
@@ -75,7 +74,9 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  build: {},
+  build: {
+    transpile: ["gsap"]
+  },
   router: {
     linkActiveClass: "",
     linkExactActiveClass: "current-page"

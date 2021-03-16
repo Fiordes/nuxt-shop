@@ -28,17 +28,27 @@
             <img src="~/assets/images/mobile/search.svg" alt="" />
           </div>
         </div>
+        <transition name="menu">
+          <HideMenu v-if="burgerState" />
+        </transition>
       </div>
     </header>
-    <HideMenu />
   </div>
 </template>
 
 <script>
+import gsap from "gsap";
+import { TimelineMax, Power0 } from "gsap";
+
 export default {
   data() {
     return {
-      burgerState: false
+      burgerState: false,
+      tween: new TimelineMax({
+        defaults: {
+          duration: 0.9
+        }
+      })
     };
   },
   components: {
@@ -47,16 +57,43 @@ export default {
   methods: {
     changeBurgerState() {
       this.burgerState = !this.burgerState;
+    },
+    menuAnimation() {
+      this.tween.fromTo(
+        ".hide-menu",
+        {
+          y: "100%",
+          opacity: 0
+        },
+        {
+          y: 0,
+          opacity: 1
+        }
+      );
+    },
+    reverseAnimation() {
+      this.tween.timeScale(2);
+      this.tween.reverse();
     }
   },
   mounted() {},
   computed: {},
-  watch: {
-    burgerState() {}
-  }
+  watch: {}
 };
 </script>
 <style lang="scss">
+.menu-enter-active {
+  transition: all 0.3s ease;
+}
+.menu-leave-active {
+  transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.menu-enter,
+.menu-leave-to {
+  transform: translateY(100px);
+  opacity: 0;
+}
+
 .mobile-header {
   @include media(desktop) {
     display: none;
@@ -106,7 +143,7 @@ export default {
           transform: translateY(7px) rotate(45deg);
         }
         &:nth-child(2) {
-          transform: translateY(0px) rotate(-45deg);
+          transform: translateY(-1px) rotate(-45deg);
         }
         &:nth-child(3) {
           width: 0;
